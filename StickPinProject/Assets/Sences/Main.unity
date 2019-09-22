@@ -221,7 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ddc3ef0074b2c4fa619b9c2672f999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 778851583}
   pinPrefab: {fileID: 1276486155350196, guid: 631921bde51677b4ab96f246d03bbd11, type: 2}
+  speed: 3
 --- !u!4 &518854951
 Transform:
   m_ObjectHideFlags: 0
@@ -394,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5af45ce15a9a1646883f1203c69e06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 150
 --- !u!1 &1031916304
 GameObject:
   m_ObjectHideFlags: 0
