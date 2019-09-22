@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4171511618759064}
   - component: {fileID: 212640720762270980}
+  - component: {fileID: 114275300043736852}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -38,7 +39,7 @@ GameObject:
   - component: {fileID: 212518513792219808}
   - component: {fileID: 58993450047113582}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: PinHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +87,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.0000019073486}
   serializedVersion: 2
   m_Radius: 1.2800004
+--- !u!114 &114275300043736852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276486155350196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f7d1ca2342ead44b5dbcc9f504b34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212518513792219808
 SpriteRenderer:
   m_ObjectHideFlags: 1

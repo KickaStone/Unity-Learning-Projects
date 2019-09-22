@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     private Transform startPoint;
     private Transform spawnPoint;
+    private Pin currentPin;
 
     public GameObject pinPrefab;
 	// Use this for initialization
@@ -16,10 +17,20 @@ public class GameManager : MonoBehaviour {
         SpawnPin();//调用方法
 	    	
 	}
+
+    private void Update() {
+        if(Input.GetMouseButtonDown(0))
+        {   
+            currentPin.StartFly();
+        }
+        
+    }
 	
     void SpawnPin()//生成针的方法
     {
-        GameObject.Instantiate(pinPrefab, spawnPoint.position, pinPrefab.transform.rotation);//生成gameobject 注意旋转使用Pin的旋转值
+        currentPin = GameObject.Instantiate(pinPrefab, spawnPoint.position, pinPrefab.transform.rotation).GetComponent<Pin>();//生成gameobject 注意旋转使用Pin的旋转值
     }
+
+
 
 }
