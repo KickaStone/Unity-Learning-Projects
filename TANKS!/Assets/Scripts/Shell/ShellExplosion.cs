@@ -8,7 +8,7 @@ public class ShellExplosion : MonoBehaviour
     public float m_MaxDamage = 100f;                  
     public float m_ExplosionForce = 1000f;            
     public float m_MaxLifeTime = 2f;                  
-    public float m_ExplosionRadius = 5f;              
+    public float m_ExplosionRadius = 5f; 
 
 
     private void Start()
@@ -20,12 +20,49 @@ public class ShellExplosion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Find all the tanks in an area around the shell and damage them.
+        Collider[] colliders = Physics.OverlapSphere(transform.position, m_ExplosionRadius, m_TankMask);
+        for(int i = 0; i < colliders.Length; i++)
+        {
+            Rigidbody tragetRigidbody = colliders[i].GetComponent<Rigidbody>();
+            if(!tragetRigidbody)
+                continue;
+            
+            tragetRigidbody.AddExplosionForce(m_ExplosionForce, transform.position, m_ExplosionRadius);
+
+            TankHealth targetHealth = tragetRigidbody.GetComponent<TankHealth>();
+            
+            if(!targetHealth)
+                continue;
+            
+            float damage = CalculateDamage(tragetRigidbody.position);
+            
+            targetHealth.TakeDamage(damage);
+        }
+
+        m_ExplosionParticles.transform.parent = null;
+        m_ExplosionParticles.Play();
+        m_ExplosionAudio.Play();
+
+        ParticleSystem.MainModule main = m_ExplosionParticles.main;
+        Destroy(m_ExplosionParticles.gameObject, main.duration);
+        Destroy(gameObject);
+
     }
 
 
     private float CalculateDamage(Vector3 targetPosition)
     {
         // Calculate the amount of damage a target should take based on it's position.
-        return 0f;
+        Vector3 explosionToTarget = targetPosition - transform.position;
+
+        float explosionDistance = explosionToTarget.magnitude;
+
+        float relativeDistance = (m_ExplosionRadius - explosionDistance) / m_ExplosionRadius;
+
+        float damage =relativeDistance * m_MaxDamage;
+
+        damage = Mathf.Max(0f, damage);
+
+        return damage;
     }
 }
