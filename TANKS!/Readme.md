@@ -13,3 +13,9 @@
 
 ### 2019年9月29日 6.Game Managers 7.Audio Mixing for Tanks
 
+
+
+### 后续优化：删除素材中的完成版， 为Scripts添加注释， 添加课程指导pdf
+
+​				
+
