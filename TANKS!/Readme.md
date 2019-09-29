@@ -11,3 +11,5 @@
 
 ### 2019年9月28日 4.Tank Health 5.Creating and Firing Shells
 
+### 2019年9月29日 6.Game Managers 7.Audio Mixing for Tanks
+

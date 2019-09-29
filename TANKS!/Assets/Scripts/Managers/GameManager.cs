@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         EnableTankControl();
 
-        m_MessageText.text = string.Empty();
+        m_MessageText.text = string.Empty;
 
         while(!OneTankLeft())
         {
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         if(m_RoundWinner != null)
         {
-            m_RoundWinner.WINS++;
+            m_RoundWinner.m_Wins++;
         }
 
         m_GameWinner = GetGameWinner();
